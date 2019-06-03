@@ -1,0 +1,69 @@
+ 
+Problem 1:
+answer:
+SELECT Name FROM students
+
+result:
+Alex
+Basma
+Hasan
+Jana
+Layal
+Robert
+
+Problem 2:
+
+answer:
+SELECT * FROM students
+WHERE age > 30
+
+result:
+5	Robert	34	M	500
+6	Jana	33	F	500
+
+Problem 3:
+
+answer:
+SELECT Name FROM students
+WHERE age = 30 AND Gender = 'female'
+
+result:
+non
+
+Problem 4:
+
+answer:
+SELECT Points FROM students
+WHERE name = 'Alex'
+
+result:
+200
+
+Problem 5:
+
+answer:
+INSERT INTO students(Name,Age, Gender, Points)
+VALUES ('Rida',22, 'M', 230);
+
+result:
+7	Rida	22	M	230
+
+Problem 6:
+
+answer:
+UPDATE students
+SET Points=200
+WHERE ID=2;
+
+result:
+2	Basma	25	F	200
+
+Problem 7:
+
+answer:
+UPDATE students
+SET Points=250
+WHERE ID=1;
+
+result:
+1	Alex	21	M	250
