@@ -67,3 +67,35 @@ WHERE ID=1;
 
 result:
 1	Alex	21	M	250
+**************************************************
+Creating Table:
+
+CREATE TABLE graduates2 (
+
+	ID	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	Name	TEXT NOT NULL UNIQUE,
+	Age	INTEGER,
+	Gender	TEXT,
+	Points INTEGER,
+	Graduation date
+);
+
+
+1.INSERT INTO graduates (Name,Age,Gender,Points) SELECT Name,Age,Gender,Points FROM students WHERE Name = 'Layal';
+
+result: query executed successfully. Took 1ms, 1 rows affected
+
+2. UPDATE graduates SET Graduation = '07/06/2019' WHERE Name = 'Layal';
+
+result: query executed successfully. Took 0ms, 1 rows affected
+At line 1:
+UPDATE graduates SET Graduation = '07/06/2019' WHERE Name = 'Layal'
+
+3. DELETE FROM students WHERE Name = 'Layal'
+
+
+Result: query executed successfully. Took 2ms, 1 rows affected
+At line 1:
+DELETE FROM students WHERE Name = 'Layal'
+
+4. 
