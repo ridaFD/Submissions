@@ -98,4 +98,32 @@ Result: query executed successfully. Took 2ms, 1 rows affected
 At line 1:
 DELETE FROM students WHERE Name = 'Layal'
 
-4. 
+******************************************************************
+
+Join
+
+11.SELECT employees.Name, employees.company, companies.date
+FROM companies
+INNER JOIN employees ON employees.COMPANY = companies.NAME;
+
+result:
+Marc	Google	1998
+Maria	Google	1998
+Alaa	Facebook	2004
+Hala	Snapchat	2011
+
+12.SELECT employees.Name, employees.company, companies.date
+FROM employees
+INNER JOIN companies ON employees.COMPANY=companies.NAME
+WHERE COMPANIES.Date < 2000;
+
+Result: 
+Marc	Google	1998
+Maria	Google	1998
+
+13.SELECT employees.Role, employees.Company
+FROM employees
+WHERE employees.Role like '%raphic%';
+
+result:
+Graphic Designer	Snapchat
