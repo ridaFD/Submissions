@@ -127,3 +127,43 @@ WHERE employees.Role like '%raphic%';
 
 result:
 Graphic Designer	Snapchat
+
+**************************************************************
+
+Count & Filter
+
+14.SELECT Name, max(Points)
+FROM students
+
+result:
+Robert	500
+
+15.SELECT Name, avg(Points)
+FROM students
+
+result:
+Alex	330.0
+
+16.SELECT ID, Name FROM students
+WHERE Points = 500;
+
+result:
+SELECT ID, Name FROM students
+WHERE Points = 500;
+
+17.SELECT ID, Name FROM students
+WHERE Name like '%s%'
+
+result:
+2	Basma
+3	Hasan
+
+18.SELECT NAME,POINTS FROM STUDENTS
+ORDER BY POINTS DESC; 
+
+result:
+Robert	500
+Jana	500
+Basma	300
+Alex	200
+Hasan	150
