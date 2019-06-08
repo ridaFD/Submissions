@@ -37,7 +37,7 @@ function onDataReceived(text) {
   if (text === 'exit\n') {
     quit();
   }
-  else if(text === `hello x\n` || text === 'hello batata\n'){
+  else if(text !== `${null}\n`){
     hello(text);
   }
   else if(text === 'help\n'){
