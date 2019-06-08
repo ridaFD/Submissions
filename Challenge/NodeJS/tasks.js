@@ -81,8 +81,8 @@ function quit(){
   process.exit();
 }
 /**
- * @param {string} 
- * @returns {void}
+ *  
+ * presents the lists of help that can help you in use the command
  */
 
 function help(){
