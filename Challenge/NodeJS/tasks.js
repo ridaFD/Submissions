@@ -40,6 +40,9 @@ function onDataReceived(text) {
   else if(text === 'hello\n'){
     hello();
   }
+  else if(text === 'help\n'){
+    help();
+  }
   else{
     unknownCommand(text);
   }
@@ -76,6 +79,16 @@ function hello(){
 function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
+}
+/**
+ * @param {string} 
+ * @returns {void}
+ */
+
+function help(){
+  console.log('-d	Output short description for each topic.');
+  console.log('-m	Display usage in pseudo-manpage format.');
+  console.log('-s	Output only a short usage synopsis for each topic matc');
 }
 
 // The following line starts the application
