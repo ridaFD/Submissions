@@ -70,7 +70,6 @@ function hello(x){
   console.log(`${x.trim()}!`)
 }
 
-
 /**
  * Exits the application
  *
