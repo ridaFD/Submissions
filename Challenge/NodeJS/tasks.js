@@ -85,7 +85,7 @@ function quit(){
  */
 
 function help(){
-  console.log('-d	Output short description for each topic.');
+  console.log('-hello	write any word like (hello) they will rewrite like(hello!).');
   console.log('-m	Display usage in pseudo-manpage format.');
   console.log('-s	Output only a short usage synopsis for each topic matc');
 }
