@@ -37,16 +37,27 @@ function onDataReceived(text) {
   if (text === 'exit\n') {
     quit();
   }
-  else if(text !== `${null}\n`){
-    hello(text);
-  }
   else if(text === 'help\n'){
     help();
+  }
+  else if(text === 'lists\n'){
+    tasks(lists);
+  }
+  else if(text !== `${null}\n`){
+    hello(text);
   }
   else{
     unknownCommand(text);
   }
 }
+
+var lists = ['Do homeWork', 'brush my teeth', 'wakeup early', 'eat fish every wed'];
+
+function tasks(lists){
+  for(var i = 0; i< lists.length; i++)
+  console.log(`${i+1}- ${lists[i]}`)
+}
+
 
 
 /**
