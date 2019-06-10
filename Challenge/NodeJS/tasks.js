@@ -46,6 +46,9 @@ function onDataReceived(text) {
   else if(text.indexOf('add',0) == '0'){
     add(text)
   }
+  else if(text.indexOf('remove',0) == '0'){
+    remove(text)
+  }
   else if(text !== `${null}\n`){
     hello(text);
   }
@@ -69,11 +72,33 @@ function tasks(lists){
  */
 // The add
 function add(x){
-  split = x.substr(4,30).trim();
-  var addArr = [split];
-  lists.push(addArr)
+  if(x.indexOf(' ',3) == 3)
+  {
+    splitAdd = x.substr(4,30).trim();
+    var addArr = [splitAdd];
+    lists.push(addArr)
+  }
+  else{
+    console.log('error')
+  }
+  
 }
 
+/**
+ * 
+ * @param {string} c 
+ * @returns {void}
+ */
+function remove(c){
+  if(c.indexOf(' ',6) == 6)
+  {
+    remNumber = parseInt(c.substr(8,1))
+    lists.splice(remNumber,1)
+  }
+  else if(c == 'remove\n'){
+    lists.pop()
+  }
+}
 
 /**
  * prints "unknown command"
