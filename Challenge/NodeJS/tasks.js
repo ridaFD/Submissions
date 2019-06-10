@@ -92,8 +92,13 @@ function add(x){
 function remove(c){
   if(c.indexOf(' ',6) == 6)
   {
-    remNumber = parseInt(c.substr(8,1))
-    lists.splice(remNumber,1)
+    remNumber = parseInt(c.substr(7,1))
+    if(remNumber > lists.length){
+      console.log('does not exitst')
+    }
+    else{
+      lists.splice(remNumber-1,1)
+    }
   }
   else if(c == 'remove\n'){
     lists.pop()
