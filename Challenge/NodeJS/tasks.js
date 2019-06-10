@@ -36,20 +36,21 @@ function startApp(name){
 
 function onDataReceived(text) {
   var textArr = text.trim().split(' ')
-  if (text === 'exit\n') {
+  var textStr = text.trim()
+  if (textArr[0] == 'exit' || textArr[0] == 'quit') {
     quit();
   }
   else if(text === 'help\n'){
     help();
   }
-  else if(textArr[0] == 'help'){
+  else if(textArr[0] === 'help'){
     hello(textArr)
   }
-  else if(text === 'lists\n'){
-    tasks(lists);
+  else if(textArr[0] === 'list'){
+    tasks(list);
   }
-  else if(text.indexOf('add',0) == '0'){
-    add(text)
+  else if(textStr.slice(0,3) == 'add'){
+    add(textStr)
   }
   else if(text.indexOf('remove',0) == '0'){
     remove(text)
@@ -66,37 +67,54 @@ function onDataReceived(text) {
 }
 
 /**
+ * Exits the application
+ *
+ * @returns {void}
+ */
+function quit(){
+  console.log('Quitting now, goodbye!')
+  process.exit();
+}
+
+/**
  * @param {string} a
  */
 function hello(a){
   a.toString.trim()
   console.log(`${a}!`)
 }
-// The tasks list
-var lists = ['Do homeWork', 'brush my teeth', 'wakeup early', 'eat fish every wed'];
 
-function tasks(lists){
-  for(var i = 0; i< lists.length; i++)
-  console.log(`${i+1}- ${lists[i]}`)
+// The tasks list
+var list = ['Do homeWork', 'brush my teeth', 'wakeup early', 'eat fish every wednesday'];
+
+function tasks(list){
+  for(var i = 0; i< list.length; i++)
+  console.log(`${i+1}- ${list[i]}`)
+}
+
+/**
+ * Says hello 
+ * @param {string} x
+ * @returns {void}
+ */
+function hello(x){
+  console.log(`${x.trim()}!`)
 }
 
 /**
  * 
  * @param {string} x
  * @returns {void}
- */
+ */ 
 // The add
 function add(x){
-  if(x.indexOf(' ',3) == 3)
+  if(x.length > 4)
   {
-    splitAdd = x.substr(4,30).trim();
-    var addArr = [splitAdd];
-    lists.push(addArr)
+   list.push(x.substr(4,30))
   }
   else{
     console.log('error')
   }
-  
 }
 
 /**
@@ -153,25 +171,6 @@ function unknownCommand(c){
   console.log('unknown command: "'+c.trim()+'"')
 }
 
-
-/**
- * Says hello 
- * @param {string} x
- * @returns {void}
- */
-function hello(x){
-  console.log(`${x.trim()}!`)
-}
-
-/**
- * Exits the application
- *
- * @returns {void}
- */
-function quit(){
-  console.log('Quitting now, goodbye!')
-  process.exit();
-}
 /**
  *  
  * presents the lists of help that can help you in use the command
