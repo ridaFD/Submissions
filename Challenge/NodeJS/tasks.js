@@ -33,12 +33,17 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+
 function onDataReceived(text) {
+  var textArr = text.trim().split(' ')
   if (text === 'exit\n') {
     quit();
   }
   else if(text === 'help\n'){
     help();
+  }
+  else if(textArr[0] == 'help'){
+    hello(textArr)
   }
   else if(text === 'lists\n'){
     tasks(lists);
@@ -49,6 +54,9 @@ function onDataReceived(text) {
   else if(text.indexOf('remove',0) == '0'){
     remove(text)
   }
+  else if(text.indexOf('edit',0) == '0'){
+    edit(text)
+  }
   else if(text !== `${null}\n`){
     hello(text);
   }
@@ -57,6 +65,13 @@ function onDataReceived(text) {
   }
 }
 
+/**
+ * @param {string} a
+ */
+function hello(a){
+  a.toString.trim()
+  console.log(`${a}!`)
+}
 // The tasks list
 var lists = ['Do homeWork', 'brush my teeth', 'wakeup early', 'eat fish every wed'];
 
@@ -105,6 +120,28 @@ function remove(c){
   }
 }
 
+/**
+ * 
+ * @param {string} b
+ * @return {void} 
+ */
+ function edit(b){
+  // editNum  = pasreInt(b.substr(5,1))
+  num = b.substr(5,1)
+  console.log(num);
+  if(b == 'edit\n')
+  {
+    console.log('error')
+  }
+    else if(num !== Number){
+    lists[num-1] = b.substr(7, 30)
+    console.log(num)
+  }
+  // else if(num != Number){
+  //   lists[lists.length-1] = b.substr(5,30)
+  //   console.log(num)
+  // }
+ }
 /**
  * prints "unknown command"
  * This function is supposed to run when all other commands have failed
