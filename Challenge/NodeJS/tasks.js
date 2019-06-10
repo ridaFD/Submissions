@@ -85,7 +85,7 @@ function add(x){
 }
 
 /**
- * 
+ * remove tasks from the list
  * @param {string} c 
  * @returns {void}
  */
@@ -137,8 +137,10 @@ function quit(){
 
 function help(){
   console.log('-hello	write any word like (hello) they will rewrite like(hello!).');
-  console.log('-m	Display usage in pseudo-manpage format.');
-  console.log('-s	Output only a short usage synopsis for each topic matc');
+  console.log('-lists show the tasks.');
+  console.log('-add you can add new tasks from your list');
+  console.log('-remove you can remove the last task from the list');
+  console.log('-remove x (x) you can choose which task you want to remove by write remove and the nubmer of task');
 }
 
 // The following line starts the application
