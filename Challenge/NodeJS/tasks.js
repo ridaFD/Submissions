@@ -43,6 +43,9 @@ function onDataReceived(text) {
   else if(text === 'lists\n'){
     tasks(lists);
   }
+  else if(text.indexOf('add',0) == '0'){
+    add(text)
+  }
   else if(text !== `${null}\n`){
     hello(text);
   }
@@ -51,6 +54,7 @@ function onDataReceived(text) {
   }
 }
 
+// The tasks list
 var lists = ['Do homeWork', 'brush my teeth', 'wakeup early', 'eat fish every wed'];
 
 function tasks(lists){
@@ -58,6 +62,17 @@ function tasks(lists){
   console.log(`${i+1}- ${lists[i]}`)
 }
 
+/**
+ * 
+ * @param {string} x
+ * @returns {void}
+ */
+// The add
+function add(x){
+  split = x.substr(4,30).trim();
+  var addArr = [split];
+  lists.push(addArr)
+}
 
 
 /**
