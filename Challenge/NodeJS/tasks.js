@@ -37,6 +37,7 @@ function startApp(name){
 function onDataReceived(text) {
   var textArr = text.trim().split(' ')
   var textStr = text.trim()
+  
   if (textArr[0] == 'exit' || textArr[0] == 'quit') {
     quit();
   }
@@ -52,8 +53,8 @@ function onDataReceived(text) {
   else if(textStr.slice(0,3) == 'add'){
     add(textStr)
   }
-  else if(text.indexOf('remove',0) == '0'){
-    remove(text)
+  else if(textStr.slice(0,6) == 'remove'){
+    remove(textStr)
   }
   else if(text.indexOf('edit',0) == '0'){
     edit(text)
@@ -123,18 +124,14 @@ function add(x){
  * @returns {void}
  */
 function remove(c){
-  if(c.indexOf(' ',6) == 6)
-  {
-    remNumber = parseInt(c.substr(7,1))
-    if(remNumber > lists.length){
-      console.log('does not exitst')
-    }
-    else{
-      lists.splice(remNumber-1,1)
-    }
+  pos = Number(c.substr(7, 1));
+  // console.log(c)
+  // console.log(pos)
+  if(c == 'remove'){
+    list.pop()
   }
-  else if(c == 'remove\n'){
-    lists.pop()
+  else{
+    list.splice(pos-1, 1)
   }
 }
 
