@@ -67,6 +67,7 @@ function onDataReceived(text) {
   }
 }
 
+
 /**
  * Exits the application
  *
@@ -153,6 +154,7 @@ function remove(c){
     list[list.length-1] = b.substr(5,30)
   }
  }
+ 
 /**
  * prints "unknown command"
  * This function is supposed to run when all other commands have failed
