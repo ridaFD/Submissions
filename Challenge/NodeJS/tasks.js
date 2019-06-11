@@ -56,8 +56,8 @@ function onDataReceived(text) {
   else if(textStr.slice(0,6) == 'remove'){
     remove(textStr)
   }
-  else if(text.indexOf('edit',0) == '0'){
-    edit(text)
+  else if(textStr.slice(0,4) == 'edit'){
+    edit(textStr)
   }
   else if(text !== `${null}\n`){
     hello(text);
@@ -125,8 +125,6 @@ function add(x){
  */
 function remove(c){
   pos = Number(c.substr(7, 1));
-  // console.log(c)
-  // console.log(pos)
   if(c == 'remove'){
     list.pop()
   }
@@ -141,21 +139,19 @@ function remove(c){
  * @return {void} 
  */
  function edit(b){
-  // editNum  = pasreInt(b.substr(5,1))
-  num = b.substr(5,1)
-  console.log(num);
-  if(b == 'edit\n')
-  {
+  pos = Number(b.substr(5,1))
+  if(pos > list.length){
+    console.log('does not exits')
+  }
+  else if(b == 'edit'){
     console.log('error')
   }
-    else if(num !== Number){
-    lists[num-1] = b.substr(7, 30)
-    console.log(num)
+  else if(Number(pos)){
+    list[pos-1] = b.substr(7,30)
   }
-  // else if(num != Number){
-  //   lists[lists.length-1] = b.substr(5,30)
-  //   console.log(num)
-  // }
+  else{
+    list[list.length-1] = b.substr(5,30)
+  }
  }
 /**
  * prints "unknown command"
