@@ -38,8 +38,39 @@ const movies = [
     { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
 ]
 
-app.get('/movies/read',(req,res) => {
+app.get('/movies/read/',(req,res) => {
     res.send({status:200, data:movies})
 })
 
+app.get('/movies/read/by-date',(req,res) => {
+    byYear = movies.sort(function(a,b) {
+        return a.year - b.year
+    })
+    
+    res.send({status:200, data:byYear})
+})
+
+app.get('/movies/read/by-rating',(req,res) => {
+    byYear = movies.sort(function(a,b) {
+        return a.rating - b.rating
+    })
+    
+    res.send({status:200, data:byYear})
+})
+
+app.get('/movies/read/by-title',(req,res) => {
+    function compare( a, b ) {
+        if ( a.title < b.title ){
+          return -1;
+        }
+        if ( a.last_nom > b.last_nom ){
+          return 1;
+        }
+        return 0;
+      }
+    
+    res.send({status:200, data:movies.sort(compare)})
+})
+
 app.listen(3000, () => console.log('listinig on port 3000'))
+
