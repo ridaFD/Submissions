@@ -72,5 +72,16 @@ app.get('/movies/read/by-title',(req,res) => {
     res.send({status:200, data:movies.sort(compare)})
 })
 
+app.get('/movies/read/id/:ID',(req,res) => {
+    var e = req.params.ID
+    if(e <= movies.length)
+    { 
+        res.send({status:200, data:movies[e-1]})
+       } 
+       else { 
+           res.send({status:500, error:true, message:"you have to provide a search"}) 
+       } 
+    })
+
 app.listen(3000, () => console.log('listinig on port 3000'))
 
