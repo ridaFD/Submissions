@@ -113,5 +113,29 @@ app.get('/movies/delete/:ID',(req,res) => {
 
     })        
 
+app.get('/movies/update/:ID',(req,res) => {
+    let c = req.params.ID
+    let x = req.query.title
+    let y = req.query.year
+    let z = req.query.rating
+
+    function update(a, b) {
+        if(a != undefined || a == "") {
+            movies[c-1][b] = a
+        }
+    }
+
+    if(c > 0 && c < movies.length ) {
+        update(x, 'title')
+        update(y, 'year')
+        update(z, 'rating')
+        res.send({status:200, message: movies})
+    }
+    else {
+        res.send({status:404, error:true, message:'the movie <ID> does not exist'})
+    }
+})
+
+
 app.listen(3000, () => console.log('listinig on port 3000'))
 
