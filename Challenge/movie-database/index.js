@@ -17,4 +17,18 @@ app.get('/time', (req, res) => {
     res.send({status:200, message:time})
 
 });
-app.listen(3000, () => console.log('listinig on port 3000'));
+
+app.get('/hello/:ID', (req, res) => {
+    res.send({status:200, message:`hello ${req.params.ID}`})
+    });
+
+    app.get('/search',(req,res) => {
+         if(req.query.s !== "")
+         { 
+             res.send({status:200, message:"ok", data:req.query.s}) 
+            } 
+            else { 
+                res.send({status:500, error:true, message:"you have to provide a search"}) 
+            } })    
+
+app.listen(3000, () => console.log('listinig on port 3000'))
