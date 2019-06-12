@@ -27,7 +27,7 @@ app.get('/hello/:ID', (req, res) => {
          { 
              res.send({status:200, message:"ok", data:req.query.s}) 
             } 
-            else { 
+            else {
                 res.send({status:500, error:true, message:"you have to provide a search"}) 
             } })    
 
@@ -74,14 +74,39 @@ app.get('/movies/read/by-title',(req,res) => {
 
 app.get('/movies/read/id/:ID',(req,res) => {
     var e = req.params.ID
-    if(e <= movies.length)
+    if(e <= movies.length && e >= 1)
     { 
         res.send({status:200, data:movies[e-1]})
        } 
        else { 
-           res.send({status:500, error:true, message:"you have to provide a search"}) 
+           res.send({status:404, error:true, message:`the movie ${e} does not exist`}) 
        } 
     })
+
+app.get('/movies/add',(req,res) => {
+    var t = req.query.title
+    var y = req.query.year
+    var r = req.query.rating
+    if(t == undefined || y == undefined || y.length > 4 || isNaN(y)) {
+        res.send({status:403, error:true, message:'you cannot create a movie without providing a title and a year'})
+       
+        // res.send({status:200, data:movies})
+    }
+    if (r == "") {
+        r = 4
+    }
+        res.send({status:200, data:movies.push(
+            {title: t, year: y, rating: r}
+        )})
+        
+    })
+
+// app.get('/movies/delete/:ID',(req,res) => {
+//     var d = req.params.ID
+
+//     res.send({})
+
+//     })        
 
 app.listen(3000, () => console.log('listinig on port 3000'))
 
